@@ -33,6 +33,6 @@ The following example shows how rbm.py can be used to train two consecutive laye
     r2.fit(V, max_epochs=1000)
     
 <h3>Sample Features Learned:</h3>
-Here is what the rbm library learned from grayscaled Galaxy images from the <a href="http://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge">Kaggle Galaxy Zoo challenge</a>:
+The following is an example of Weights rbm library learned from grayscaled Galaxy images from the <a href="http://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge">Kaggle Galaxy Zoo challenge</a>:
 
 <img src="https://raw2.github.com/ramarlina/RBM/master/images/rbm_results_5000_784x322.png"/>
