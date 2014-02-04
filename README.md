@@ -6,11 +6,12 @@ It handles Numpy arrays as well as Scipy sparse matrices.
 I am using the moment method to update the weights.
 
 To use this module, make sure the following Python libraries are installed:
-    - Numpy
-    - Scipy
-    - PIL
-    - Matplotlib
-    
+<ul>
+    <li>Numpy</li>
+    <li>Scipy</li>
+    <li>PIL</li>
+    <li>Matplotlib</li>
+</ul>
 <h3>Example:</h3> 
 
 The following example shows how rbm.py can be used to train two consecutive layers of a neural network using an arbitrary data vector X:
