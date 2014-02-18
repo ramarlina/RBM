@@ -11,21 +11,19 @@ def normalize(x):
     return V
     
 def sigmoid(x):
+    #return x*(x > 0)
     #return numpy.tanh(x)
-    return 1.0/(1+numpy.exp(-x))
-    
-def grad_sigmoid(x):
-    return x*(1-x)
+    return 1.0/(1+numpy.exp(-x)) 
 
 class RBM():
     def __init__(self, n_visible=None, n_hidden=None, W=None, learning_rate = 0.1, weight_decay=1,cd_steps=1,momentum=0.5):
-        self.learning_rate = learning_rate 
         if W == None:
             self.W =  numpy.random.uniform(-.1,0.1,(n_visible,  n_hidden)) / numpy.sqrt(n_visible + n_hidden)
             self.W = numpy.insert(self.W, 0, 0, axis = 1)
             self.W = numpy.insert(self.W, 0, 0, axis = 0)
         else:
             self.W=W 
+        self.learning_rate = learning_rate 
         self.momentum = momentum
         self.last_change = 0
         self.last_update = 0
@@ -57,12 +55,13 @@ class RBM():
             neg_associations = self.V_state.T.dot(self.H_state) 
             self.V_state = self.sample(self.H_state) 
             
-            # Update weights.
-            self.last_change = self.learning_rate * ((pos_associations - neg_associations) / batch_size)
+            # Update weights. 
             w_update = self.learning_rate * ((pos_associations - neg_associations) / batch_size) 
             total_change = numpy.sum(numpy.abs(w_update)) 
             self.W += self.momentum * self.last_change  + w_update
             self.W *= self.weight_decay 
+            
+            self.last_change = w_update
             
             RMSE = numpy.mean((csr[idx] - self.V_state)**2)**0.5
             self.Errors.append(RMSE)
@@ -72,7 +71,7 @@ class RBM():
         
     def learning_curve(self):
         plt.ion()
-        plt.figure()
+        #plt.figure()
         plt.show()
         E = numpy.array(self.Errors)
         plt.plot(pandas.rolling_mean(E, 50)[50:])  
@@ -102,4 +101,9 @@ class RBM():
         p = sigmoid(csr.dot(self.W.T)) 
         p[:,0] = 1
         return p
-     
+      
+if __name__=="__main__":
+    data = numpy.random.uniform(0,1,(100,10))
+    rbm = RBM(10,15)
+    rbm.fit(data,1000)
+    rbm.learning_curve()
