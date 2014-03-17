@@ -11,10 +11,17 @@ To use this module, make sure the following Python libraries are installed:
     <li>Scipy</li>
     <li>PIL</li>
     <li>Matplotlib</li>
-</ul>
-<h3>Example:</h3> 
+</ul> 
+    
+<h3>Sample Features Learned:</h3>
+The following is an example of Weights rbm library learned from grayscaled Galaxy images from the <a href="http://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge">Kaggle Galaxy Zoo challenge</a>:
 
-The following example shows how rbm.py can be used to train two consecutive layers of a neural network using an arbitrary data vector X:
+<img src="https://raw2.github.com/ramarlina/RBM/master/images/rbm_results_5000_784x322.png"/>
+
+<h3>Deep Neural Networks</h3>
+This module can be used to build deep neural networks by training one layer after another.
+
+The following example shows how to train two consecutive layers of a neural network using an arbitrary data vector X:
     
     # import the rbm library
     import rbm
@@ -33,7 +40,6 @@ The following example shows how rbm.py can be used to train two consecutive laye
     r2 = rbm.RBM(V.shape[1], <output_size>)
     r2.fit(V, max_epochs=1000)
     
-<h3>Sample Features Learned:</h3>
-The following is an example of Weights rbm library learned from grayscaled Galaxy images from the <a href="http://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge">Kaggle Galaxy Zoo challenge</a>:
+<img src="https://docs.google.com/drawings/d/1judnrIeLx5cz6P4sGIwDPRKqL1-lCvFFQyExAkAXlf8/pub?w=480&amp;h=360">
 
-<img src="https://raw2.github.com/ramarlina/RBM/master/images/rbm_results_5000_784x322.png"/>
+
