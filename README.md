@@ -1,7 +1,7 @@
-RBM
+Restricted Boltzmann Machines
 ===
 
-This is a simple Python implementation of Restricted Boltzmann Machine. 
+This is a simple Python implementation of Restricted Boltzmann Machine (RBM). 
 It handles Numpy arrays as well as Scipy sparse matrices. 
 I am using the moment method to update the weights.
 
@@ -12,6 +12,10 @@ To use this module, make sure the following Python libraries are installed:
     <li>PIL</li>
     <li>Matplotlib</li>
 </ul> 
+    
+Given an input vector X, the RBM algorithm learns a set of internal values H that would produce the data X.
+
+
     
 <h3>Sample Features Learned:</h3>
 The following is an example of Weights rbm library learned from grayscaled Galaxy images from the <a href="http://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge">Kaggle Galaxy Zoo challenge</a>:
